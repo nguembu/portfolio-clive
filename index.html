@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Massachossetes Electrical Engineering - Clive MBUBIA</title>
+    <style>
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #003366; /* Bleu professionnel */
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(0, 51, 102, 0.95);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #FFD700; /* Or pour l'énergie/électricité */
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #FFD700;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #003366 0%, #FFA500 100%);
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #FFD700;
+            color: #003366;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid #FFD700;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border-color: white;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: #FFD700;
+            color: #003366;
+            border-color: #FFD700;
+        }
+
+        /* About Section */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #003366;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: #FFD700;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section Styles */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .photo-frame {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #FFD700;
+            box-shadow: 0 10px 30px rgba(0, 51, 102, 0.2);
+            position: relative;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-frame:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-img, .about-text {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .photo-frame {
+                max-width: 250px;
+                height: 250px;
+            }
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #003366;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .skills {
+            margin-top: 30px;
+        }
+
+        .skills h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: #003366;
+        }
+
+        .technologies {
+            margin-top: 40px;
+        }
+        
+        .technologies h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #003366;
+        }
+        
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 20px;
+        }
+        
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-bottom: 3px solid #FFD700;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tech-item i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #FFD700;
+        }
+        
+        .tech-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #f0f8ff;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border-bottom: 4px solid #FFD700;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 51, 102, 0.15);
+        }
+
+        .service-icon {
+            font-size: 50px;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #003366;
+        }
+
+        /* Projects Section */
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            margin: 0 10px 10px;
+            background-color: transparent;
+            border: 1px solid #003366;
+            color: #003366;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: #003366;
+            color: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.1);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 51, 102, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .project-item:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-item:hover .project-img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project-overlay a {
+            display: inline-block;
+            margin-top: 15px;
+            color: white;
+            border: 1px solid white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .project-overlay a:hover {
+            background-color: #FFD700;
+            color: #003366;
+            border-color: #FFD700;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #003366;
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #FFD700;
+            color: #003366;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #f0f8ff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .contact-form button {
+            padding: 12px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #FFD700;
+            color: #003366;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #FFD700;
+            color: #003366;
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: #003366;
+                transition: all 0.3s;
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-img, .about-text {
+                padding: 0;
+                min-width: 100%;
+            }
+
+            .about-img {
+                margin-bottom: 30px;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        /* Curseur personnalisé */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background-color: #FFD700;
+            border-radius: 50%;
+            pointer-events: none;
+            mix-blend-mode: difference;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.5s ease;
+        }
+
+        .custom-cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #FFD700;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+        }
+
+        /* Effet spécial sur les éléments interactifs */
+        a, button, .project-item, input, textarea {
+            cursor: none !important;
+        }
+
+        a:hover ~ .custom-cursor,
+        button:hover ~ .custom-cursor,
+        .project-item:hover ~ .custom-cursor,
+        input:hover ~ .custom-cursor,
+        textarea:hover ~ .custom-cursor {
+            transform: scale(1.5);
+            background-color: white;
+        }
+
+        a:hover ~ .custom-cursor-follower,
+        button:hover ~ .custom-cursor-follower,
+        .project-item:hover ~ .custom-cursor-follower,
+        input:hover ~ .custom-cursor-follower,
+        textarea:hover ~ .custom-cursor-follower {
+            transform: scale(0.5);
+            border-color: white;
+        }
+
+        /* Animation d'apparition */
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Typing animation styles */
+        .typed-cursor {
+            opacity: 1;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Curseurs personnalisés -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+    
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="#">Massachossetes<span>Electrical</span></a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars">☰</i>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Réalisations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1 id="typed-title"></h1>
+            <h2 id="typed-subtitle" class="hidden"></h2>
+            <p class="hero-description hidden">Expert en énergie bâtiment, énergies renouvelables, solaire et systèmes de sécurité.</p>
+            <div class="hero-btns hidden">
+                <a href="#projects" class="btn">Voir mes réalisations</a>
+                <a href="#contact" class="btn btn-outline">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section-hidden" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>À propos de moi</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <div class="photo-frame">
+                        <!-- Image de profil (à remplacer par une vraie photo) -->
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Clive MBUBIA">
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>MBUBIA MBAKOP CLIVE</h3>
+                    <h3 style="color: #FFD700;">CEO - Massachossetes Electrical Engineering</h3>
+                    <p>Ingénieur spécialisé en énergie des bâtiments, expert en énergies renouvelables et solaire, et installateur agréé de systèmes de vidéosurveillance.</p>
+                    <p>Avec plusieurs années d'expérience, je propose des solutions électriques complètes, économiques et durables pour les particuliers et les professionnels. Mon engagement : qualité, sécurité et satisfaction client.</p>
+
+                    <div class="skills-technologies">
+                        <div class="skills">
+                            <h4>Mes domaines d'expertise :</h4>
+                            <div class="tech-stack">
+                                <div class="tech-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Énergie Bâtiment</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-sun"></i>
+                                    <span>Solaire</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-wind"></i>
+                                    <span>Énergies Renouvelables</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-video"></i>
+                                    <span>Caméras Surveillance</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-plug"></i>
+                                    <span>Installations Électriques</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="technologies">
+                            <h4>Certifications et équipements :</h4>
+                            <div class="tech-stack">
+                                <div class="tech-item">
+                                    <i class="fas fa-certificate"></i>
+                                    <span>Ingénieur Énergie</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-solar-panel"></i>
+                                    <span>Panneaux Solaires</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Audit Énergétique</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Sécurité</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-tools"></i>
+                                    <span>Maintenance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section-hidden" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes services</h2>
+            </div>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Énergie Bâtiment</h3>
+                    <p>Étude, conception et installation de systèmes électriques pour bâtiments résidentiels et commerciaux, conformes aux normes en vigueur.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">☀️</div>
+                    <h3>Énergie Solaire</h3>
+                    <p>Installation de panneaux solaires photovoltaïques et thermiques pour l'autoconsommation et la réduction des factures d'énergie.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌱</div>
+                    <h3>Énergies Renouvelables</h3>
+                    <p>Solutions hybrides (solaire, éolien, biomasse) pour une transition énergétique durable et adaptée à votre environnement.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📹</div>
+                    <h3>Caméras de Surveillance</h3>
+                    <p>Installation de systèmes de vidéosurveillance analogiques et IP pour la sécurité de vos biens et de vos proches.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Maintenance & Dépannage</h3>
+                    <p>Interventions rapides pour la maintenance préventive et corrective de vos installations électriques et solaires.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects section-hidden" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes réalisations</h2>
+            </div>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="solaire">Solaire</button>
+                <button class="filter-btn" data-filter="batiment">Bâtiment</button>
+                <button class="filter-btn" data-filter="securite">Sécurité</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-item" data-category="solaire">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Installation solaire" class="project-img">
+                    <div class="project-overlay">
+                        <h3>Ferme solaire 50kWc</h3>
+                        <p>Installation de panneaux solaires pour une entreprise agroalimentaire à Yaoundé</p>
+                        <a href="#">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="project-item" data-category="batiment">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Électricité bâtiment" class="project-img">
+                    <div class="project-overlay">
+                        <h3>Résidence Les Cocotiers</h3>
+                        <p>Électricité générale et tableau intelligent pour une résidence de 10 appartements</p>
+                        <a href="#">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="project-item" data-category="securite">
+                    <img src="https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Caméras surveillance" class="project-img">
+                    <div class="project-overlay">
+                        <h3>Supermarché Galaxy</h3>
+                        <p>Installation de 20 caméras IP avec enregistrement et vision à distance</p>
+                        <a href="#">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="project-item" data-category="solaire">
+                    <img src="https://images.unsplash.com/photo-1559302504-64aae6ff6bc4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pompage solaire" class="project-img">
+                    <div class="project-overlay">
+                        <h3>Système de pompage solaire</h3>
+                        <p>Pompage solaire pour l'irrigation d'une plantation à l'Ouest</p>
+                        <a href="#">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="project-item" data-category="batiment">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Immeuble de bureaux" class="project-img">
+                    <div class="project-overlay">
+                        <h3>Siège Social MTN</h3>
+                        <p>Audit énergétique et optimisation de l'éclairage</p>
+                        <a href="#">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="project-item" data-category="securite">
+                    <img src="https://images.unsplash.com/photo-1582131509467-59f8e85f1b6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Surveillance" class="project-img">
+                    <div class="project-overlay">
+                        <h3>École Internationale</h3>
+                        <p>Sécurisation du périmètre avec caméras et alarmes</p>
+                        <a href="#">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section-hidden" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contactez-moi</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Massachossetes Electrical Engineering</h3>
+                    <p>Pour tout projet d'installation électrique, solaire ou de sécurité, n'hésitez pas à me contacter. Je suis à votre écoute pour étudier votre besoin et vous proposer la solution la plus adaptée.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>clivembubia@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div>
+                                <h4>Téléphone / WhatsApp</h4>
+                                <p>+237 691 135 513 / +237 680 879 906</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🏢</div>
+                            <div>
+                                <h4>Adresse</h4>
+                                <p>Yaoundé, Cameroun</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contact-form" action="https://formspree.io/f/xzzgozkb" method="POST">
+                        <input type="text" name="name" placeholder="Votre nom" required>
+                        <input type="email" name="email" placeholder="Votre email" required>
+                        <input type="text" name="subject" placeholder="Sujet" required>
+                        <textarea name="message" placeholder="Décrivez votre projet..." required rows="5"></textarea>
+                        <input type="text" name="_gotcha" style="display:none">
+                        <button type="submit">Envoyer la demande</button>
+                    </form>
+                    <div id="form-message" style="display: none; text-align: center; margin-top: 20px;">
+                        <p style="color: green;">✅ Merci ! Votre message a été envoyé. Je vous répondrai dans les plus brefs délais.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" target="_blank" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 Massachossetes Electrical Engineering - Tous droits réservés.</p>
+            <p>CEO : MBUBIA MBAKOP CLIVE</p>
+        </div>
+    </footer>
+
+    <script>
+    // Menu mobile
+    const mobileMenu = document.getElementById('mobile-menu');
+    const nav = document.getElementById('nav');
+    
+    mobileMenu.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+    
+    // Fermer le menu lors du clic sur un lien
+    document.querySelectorAll('#nav ul li a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+        });
+    });
+    
+    // Header scroll effect
+    const header = document.getElementById('header');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
+    // Filtre projets
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const filter = btn.getAttribute('data-filter');
+            
+            projectItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Animation au scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const fadeInOnScroll = () => {
+        fadeElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementTop < windowHeight - 100) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    };
+    
+    window.addEventListener('load', fadeInOnScroll);
+    window.addEventListener('scroll', fadeInOnScroll);
+    
+    // Formulaire de contact
+    const contactForm = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: contactForm.method,
+                    body: formData,
+                    headers: { Accept: 'application/json' }
+                });
+                
+                if (response.ok) {
+                    contactForm.reset();
+                    formMessage.style.display = 'block';
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Erreur réseau');
+                }
+            } catch (error) {
+                formMessage.innerHTML = '<p style="color: red;">❌ Une erreur est survenue. Veuillez réessayer plus tard.</p>';
+                formMessage.style.display = 'block';
+            }
+        });
+    }
+    
+    // Curseur personnalisé
+    const cursor = document.querySelector('.custom-cursor');
+    const cursorFollower = document.querySelector('.custom-cursor-follower');
+    
+    if (cursor && cursorFollower) {
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+        
+        document.querySelectorAll('a, button, .project-item, input, textarea').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursor.style.backgroundColor = 'white';
+                cursorFollower.style.transform = 'translate(-50%, -50%) scale(0.5)';
+                cursorFollower.style.borderColor = 'white';
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursor.style.backgroundColor = '#FFD700';
+                cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorFollower.style.borderColor = '#FFD700';
+            });
+        });
+    }
+    
+    // Smooth scroll pour les liens d'ancrage
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Observer pour les animations au défilement
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('section-visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.section-hidden').forEach(section => {
+        observer.observe(section);
+    });
+    
+    // Animation de typing
+    document.addEventListener('DOMContentLoaded', function() {
+        const titleText = "MBUBIA MBAKOP CLIVE";
+        const subtitleText = "CEO - Massachossetes Electrical Engineering";
+        
+        const titleElement = document.getElementById('typed-title');
+        const subtitleElement = document.getElementById('typed-subtitle');
+        const description = document.querySelector('.hero-description');
+        const buttons = document.querySelector('.hero-btns');
+        
+        function typeWriter(text, element, speed, callback) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function typing() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typing, speed);
+                } else {
+                    const cursor = document.createElement('span');
+                    cursor.className = 'typed-cursor';
+                    cursor.innerHTML = '|';
+                    element.appendChild(cursor);
+                    cursor.style.display = 'none';  
+                    
+                    if (callback) callback();
+                }
+            }
+            
+            typing();
+        }
+        
+        typeWriter(titleText, titleElement, 100, function() {
+            subtitleElement.classList.remove('hidden');
+            subtitleElement.classList.add('visible');
+            
+            typeWriter(subtitleText, subtitleElement, 100, function() {
+                setTimeout(() => {
+                    description.classList.remove('hidden');
+                    description.classList.add('visible');
+                    
+                    setTimeout(() => {
+                        buttons.classList.remove('hidden');
+                        buttons.classList.add('visible');
+                    }, 300);
+                }, 500);
+            });
+        });
+    });
+    </script>
+</body>
+</html>
