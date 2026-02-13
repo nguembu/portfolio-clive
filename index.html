@@ -18,6 +18,32 @@
             background-color: #f0f8ff;
             color: #333;
             line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Mode sombre */
+        body.dark-mode {
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .service-card,
+        body.dark-mode .tech-item,
+        body.dark-mode .contact-form,
+        body.dark-mode .testimonial-card,
+        body.dark-mode .blog-card,
+        body.dark-mode .cert-item {
+            background-color: #16213e;
+            color: #e0e0e0;
+            border-color: #FFD700;
+        }
+
+        body.dark-mode .section-title h2 {
+            color: #FFD700;
+        }
+
+        body.dark-mode .services {
+            background-color: #0f3460;
         }
 
         a {
@@ -37,7 +63,7 @@
 
         /* Header */
         header {
-            background-color: #003366; /* Bleu professionnel */
+            background-color: #003366;
             color: white;
             padding: 20px 0;
             position: fixed;
@@ -53,6 +79,10 @@
             background-color: rgba(0, 51, 102, 0.95);
         }
 
+        body.dark-mode header {
+            background-color: #0f3460;
+        }
+
         .header-container {
             display: flex;
             justify-content: space-between;
@@ -65,7 +95,7 @@
         }
 
         .logo span {
-            color: #FFD700; /* Or pour l'énergie/électricité */
+            color: #FFD700;
         }
 
         nav ul {
@@ -88,6 +118,54 @@
         .menu-toggle {
             display: none;
             cursor: pointer;
+            font-size: 24px;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: transparent;
+            border: 2px solid #FFD700;
+            color: #FFD700;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-left: 20px;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: #FFD700;
+            color: #003366;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+
+        .whatsapp-float i {
             font-size: 24px;
         }
 
@@ -149,7 +227,7 @@
             border-color: #FFD700;
         }
 
-        /* About Section */
+        /* Sections communes */
         section {
             padding: 100px 0;
         }
@@ -165,6 +243,7 @@
             position: relative;
             display: inline-block;
             padding-bottom: 15px;
+            transition: color 0.3s;
         }
 
         .section-title h2::after {
@@ -178,7 +257,7 @@
             transform: translateX(-50%);
         }
 
-        /* About Section Styles */
+        /* About Section */
         .about-content {
             display: flex;
             flex-wrap: wrap;
@@ -222,54 +301,17 @@
             min-width: 300px;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .about-img, .about-text {
-                width: 100%;
-                max-width: 100%;
-            }
-            
-            .photo-frame {
-                max-width: 250px;
-                height: 250px;
-            }
-        }
-
         .about-text h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
             color: #003366;
         }
 
-        .about-text p {
-            margin-bottom: 15px;
+        body.dark-mode .about-text h3 {
+            color: #FFD700;
         }
 
-        .skills {
-            margin-top: 30px;
-        }
-
-        .skills h4 {
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            color: #003366;
-        }
-
-        .technologies {
-            margin-top: 40px;
-        }
-        
-        .technologies h4 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #003366;
-        }
-        
+        /* Tech Stack */
         .tech-stack {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -298,16 +340,11 @@
             margin-bottom: 10px;
             color: #FFD700;
         }
-        
-        .tech-item span {
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-align: center;
-        }
 
         /* Services Section */
         .services {
             background-color: #f0f8ff;
+            transition: background-color 0.3s;
         }
 
         .services-container {
@@ -367,6 +404,17 @@
             color: white;
         }
 
+        body.dark-mode .filter-btn {
+            border-color: #FFD700;
+            color: #FFD700;
+        }
+
+        body.dark-mode .filter-btn.active,
+        body.dark-mode .filter-btn:hover {
+            background-color: #FFD700;
+            color: #003366;
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -414,30 +462,194 @@
             transform: scale(1.1);
         }
 
-        .project-overlay h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+        /* Certifications Section */
+        .certifications {
+            background-color: white;
+            transition: background-color 0.3s;
         }
 
-        .project-overlay a {
-            display: inline-block;
-            margin-top: 15px;
-            color: white;
-            border: 1px solid white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            transition: all 0.3s;
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
-        .project-overlay a:hover {
-            background-color: #FFD700;
+        .cert-item {
+            text-align: center;
+            padding: 30px;
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            border-bottom: 3px solid #FFD700;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-item i {
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .cert-item h4 {
             color: #003366;
-            border-color: #FFD700;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        body.dark-mode .cert-item h4 {
+            color: #FFD700;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f0f8ff;
+            transition: background-color 0.3s;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 80px;
+            color: #FFD700;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-author h4 {
+            color: #003366;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-author span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        body.dark-mode .testimonial-author h4 {
+            color: #FFD700;
+        }
+
+        body.dark-mode .testimonial-author span {
+            color: #e0e0e0;
+        }
+
+        /* Blog Section */
+        .blog {
+            background-color: white;
+            transition: background-color 0.3s;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-date {
+            color: #FFD700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .blog-content h3 {
+            color: #003366;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .blog-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .blog-link {
+            color: #003366;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s;
+        }
+
+        .blog-link:hover {
+            gap: 10px;
+            color: #FFD700;
+        }
+
+        body.dark-mode .blog-content h3 {
+            color: #FFD700;
+        }
+
+        body.dark-mode .blog-content p {
+            color: #e0e0e0;
         }
 
         /* Contact Section */
         .contact {
             background-color: white;
+            transition: background-color 0.3s;
         }
 
         .contact-container {
@@ -450,10 +662,6 @@
             font-size: 1.5rem;
             margin-bottom: 20px;
             color: #003366;
-        }
-
-        .contact-info p {
-            margin-bottom: 30px;
         }
 
         .contact-details {
@@ -528,6 +736,10 @@
             padding: 30px 0;
         }
 
+        body.dark-mode footer {
+            background-color: #0f3460;
+        }
+
         .social-links {
             margin-bottom: 20px;
         }
@@ -587,19 +799,6 @@
                 font-size: 1.5rem;
             }
 
-            .about-content {
-                flex-direction: column;
-            }
-
-            .about-img, .about-text {
-                padding: 0;
-                min-width: 100%;
-            }
-
-            .about-img {
-                margin-bottom: 30px;
-            }
-
             .btn {
                 display: block;
                 width: 100%;
@@ -609,9 +808,18 @@
             .btn-outline {
                 margin-left: 0;
             }
+
+            .whatsapp-float span {
+                display: none;
+            }
+
+            .whatsapp-float {
+                padding: 15px;
+                border-radius: 50%;
+            }
         }
 
-        /* Animation */
+        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -626,57 +834,7 @@
         .fade-in {
             animation: fadeIn 1s ease forwards;
         }
-        
-        /* Curseur personnalisé */
-        .custom-cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background-color: #FFD700;
-            border-radius: 50%;
-            pointer-events: none;
-            mix-blend-mode: difference;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: transform 0.5s ease;
-        }
 
-        .custom-cursor-follower {
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            border: 2px solid #FFD700;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            transform: translate(-50%, -50%);
-            transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
-        }
-
-        /* Effet spécial sur les éléments interactifs */
-        a, button, .project-item, input, textarea {
-            cursor: none !important;
-        }
-
-        a:hover ~ .custom-cursor,
-        button:hover ~ .custom-cursor,
-        .project-item:hover ~ .custom-cursor,
-        input:hover ~ .custom-cursor,
-        textarea:hover ~ .custom-cursor {
-            transform: scale(1.5);
-            background-color: white;
-        }
-
-        a:hover ~ .custom-cursor-follower,
-        button:hover ~ .custom-cursor-follower,
-        .project-item:hover ~ .custom-cursor-follower,
-        input:hover ~ .custom-cursor-follower,
-        textarea:hover ~ .custom-cursor-follower {
-            transform: scale(0.5);
-            border-color: white;
-        }
-
-        /* Animation d'apparition */
         .section-hidden {
             opacity: 0;
             transform: translateY(50px);
@@ -687,8 +845,7 @@
             opacity: 1;
             transform: translateY(0);
         }
-        
-        /* Typing animation styles */
+
         .typed-cursor {
             opacity: 1;
             animation: blink 0.7s infinite;
@@ -712,9 +869,11 @@
     </style>
 </head>
 <body>
-    <!-- Curseurs personnalisés -->
-    <div class="custom-cursor"></div>
-    <div class="custom-cursor-follower"></div>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/237680879906" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Besoin d'aide ?</span>
+    </a>
     
     <!-- Header -->
     <header id="header">
@@ -722,14 +881,22 @@
             <div class="logo">
                 <a href="#">Massachossetes<span>Electrical</span></a>
             </div>
-            <div class="menu-toggle" id="mobile-menu">
-                <i class="fas fa-bars">☰</i>
+            <div style="display: flex; align-items: center;">
+                <div class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
             <nav id="nav">
                 <ul>
                     <li><a href="#home">Accueil</a></li>
                     <li><a href="#about">À propos</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#testimonials">Témoignages</a></li>
+                    <li><a href="#blog">Blog</a></li>
                     <li><a href="#projects">Réalisations</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -759,7 +926,6 @@
             <div class="about-content">
                 <div class="about-img">
                     <div class="photo-frame">
-                        <!-- Image de profil (à remplacer par une vraie photo) -->
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Clive MBUBIA">
                     </div>
                 </div>
@@ -792,32 +958,6 @@
                                 <div class="tech-item">
                                     <i class="fas fa-plug"></i>
                                     <span>Installations Électriques</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="technologies">
-                            <h4>Certifications et équipements :</h4>
-                            <div class="tech-stack">
-                                <div class="tech-item">
-                                    <i class="fas fa-certificate"></i>
-                                    <span>Ingénieur Énergie</span>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fas fa-solar-panel"></i>
-                                    <span>Panneaux Solaires</span>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fas fa-chart-line"></i>
-                                    <span>Audit Énergétique</span>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <span>Sécurité</span>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fas fa-tools"></i>
-                                    <span>Maintenance</span>
                                 </div>
                             </div>
                         </div>
@@ -863,6 +1003,116 @@
         </div>
     </section>
 
+    <!-- Certifications Section -->
+    <section class="certifications section-hidden" id="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications & Agréments</h2>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <i class="fas fa-certificate"></i>
+                    <h4>Ingénieur Énergie</h4>
+                    <p>Diplômé de l'ENSP Yaoundé</p>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-award"></i>
+                    <h4>Certifié Schneider Electric</h4>
+                    <p>Installateur agréé</p>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Agrément MINEE</h4>
+                    <p>N° 2024/025/AG/MINEE</p>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-solar-panel"></i>
+                    <h4>Expert Solaire</h4>
+                    <p>Certification IRENA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section-hidden" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Témoignages clients</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Installation impeccable de nos panneaux solaires. Économie de 40% sur la facture d'électricité !"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Client">
+                        <div>
+                            <h4>Jean M.</h4>
+                            <span>PDG, JM Constructions</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Système de vidéosurveillance installé dans notre supermarché. Image de qualité et service après-vente réactif."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Client">
+                        <div>
+                            <h4>Marie K.</h4>
+                            <span>Directrice, Supermarché Galaxy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Expertise technique et professionnalisme. Clive a réalisé l'audit énergétique de nos bureaux avec brio."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Client">
+                        <div>
+                            <h4>Paul B.</h4>
+                            <span>Directeur Technique, MTN Cameroun</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog section-hidden" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conseils & Actualités</h2>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Blog" class="blog-img">
+                    <div class="blog-content">
+                        <span class="blog-date">12 Mars 2024</span>
+                        <h3>Comment choisir son installateur solaire ?</h3>
+                        <p>5 critères essentiels pour sélectionner le bon professionnel et garantir la rentabilité de votre investissement solaire.</p>
+                        <a href="#" class="blog-link">Lire plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Blog" class="blog-img">
+                    <div class="blog-content">
+                        <span class="blog-date">5 Février 2024</span>
+                        <h3>Guide des caméras de surveillance</h3>
+                        <p>IP vs Analogique : que choisir pour votre entreprise ? Comparatif complet des technologies.</p>
+                        <a href="#" class="blog-link">Lire plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Blog" class="blog-img">
+                    <div class="blog-content">
+                        <span class="blog-date">20 Janvier 2024</span>
+                        <h3>Économies d'énergie en entreprise</h3>
+                        <p>Les 10 gestes simples pour réduire votre facture d'électricité jusqu'à 30% dès ce mois-ci.</p>
+                        <a href="#" class="blog-link">Lire plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section class="projects section-hidden" id="projects">
         <div class="container">
@@ -897,30 +1147,6 @@
                     <div class="project-overlay">
                         <h3>Supermarché Galaxy</h3>
                         <p>Installation de 20 caméras IP avec enregistrement et vision à distance</p>
-                        <a href="#">Voir le projet</a>
-                    </div>
-                </div>
-                <div class="project-item" data-category="solaire">
-                    <img src="https://images.unsplash.com/photo-1559302504-64aae6ff6bc4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pompage solaire" class="project-img">
-                    <div class="project-overlay">
-                        <h3>Système de pompage solaire</h3>
-                        <p>Pompage solaire pour l'irrigation d'une plantation à l'Ouest</p>
-                        <a href="#">Voir le projet</a>
-                    </div>
-                </div>
-                <div class="project-item" data-category="batiment">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Immeuble de bureaux" class="project-img">
-                    <div class="project-overlay">
-                        <h3>Siège Social MTN</h3>
-                        <p>Audit énergétique et optimisation de l'éclairage</p>
-                        <a href="#">Voir le projet</a>
-                    </div>
-                </div>
-                <div class="project-item" data-category="securite">
-                    <img src="https://images.unsplash.com/photo-1582131509467-59f8e85f1b6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Surveillance" class="project-img">
-                    <div class="project-overlay">
-                        <h3>École Internationale</h3>
-                        <p>Sécurisation du périmètre avec caméras et alarmes</p>
                         <a href="#">Voir le projet</a>
                     </div>
                 </div>
@@ -985,18 +1211,10 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="#" target="_blank" class="social-icon">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#" target="_blank" class="social-icon">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="#" target="_blank" class="social-icon">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" target="_blank" class="social-icon">
-                    <i class="fab fa-instagram"></i>
-                </a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/237680879906" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
             <p>&copy; 2024 Massachossetes Electrical Engineering - Tous droits réservés.</p>
             <p>CEO : MBUBIA MBAKOP CLIVE</p>
@@ -1012,7 +1230,6 @@
         nav.classList.toggle('active');
     });
     
-    // Fermer le menu lors du clic sur un lien
     document.querySelectorAll('#nav ul li a').forEach(link => {
         link.addEventListener('click', () => {
             nav.classList.remove('active');
@@ -1027,6 +1244,22 @@
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
+        }
+    });
+    
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        
+        if (document.body.classList.contains('dark-mode')) {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
         }
     });
     
@@ -1050,24 +1283,6 @@
             });
         });
     });
-    
-    // Animation au scroll
-    const fadeElements = document.querySelectorAll('.fade-in');
-    
-    const fadeInOnScroll = () => {
-        fadeElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementTop < windowHeight - 100) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
-    };
-    
-    window.addEventListener('load', fadeInOnScroll);
-    window.addEventListener('scroll', fadeInOnScroll);
     
     // Formulaire de contact
     const contactForm = document.getElementById('contact-form');
@@ -1101,39 +1316,7 @@
         });
     }
     
-    // Curseur personnalisé
-    const cursor = document.querySelector('.custom-cursor');
-    const cursorFollower = document.querySelector('.custom-cursor-follower');
-    
-    if (cursor && cursorFollower) {
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            
-            setTimeout(() => {
-                cursorFollower.style.left = e.clientX + 'px';
-                cursorFollower.style.top = e.clientY + 'px';
-            }, 100);
-        });
-        
-        document.querySelectorAll('a, button, .project-item, input, textarea').forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                cursor.style.backgroundColor = 'white';
-                cursorFollower.style.transform = 'translate(-50%, -50%) scale(0.5)';
-                cursorFollower.style.borderColor = 'white';
-            });
-            
-            item.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursor.style.backgroundColor = '#FFD700';
-                cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursorFollower.style.borderColor = '#FFD700';
-            });
-        });
-    }
-    
-    // Smooth scroll pour les liens d'ancrage
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -1150,7 +1333,7 @@
         });
     });
     
-    // Observer pour les animations au défilement
+    // Observer pour les animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1165,7 +1348,7 @@
     
     // Animation de typing
     document.addEventListener('DOMContentLoaded', function() {
-        const titleText = "MBUBIA MBAKOP CLIVE";
+        const titleText = "Je suis MBUBIA MBAKOP CLIVE";
         const subtitleText = "CEO - Massachossetes Electrical Engineering";
         
         const titleElement = document.getElementById('typed-title');
